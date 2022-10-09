@@ -14,6 +14,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
+import android.widget.ToggleButton;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox therapistCheck;
     private CheckBox surgeonCheck;
     private CheckBox orthopedistCheck;
+    private ToggleButton toggleBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +87,13 @@ public class MainActivity extends AppCompatActivity {
                 surgeonCheck.setChecked(false);
             }
         });
+
+        toggleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view,"Вы записаны!", Snackbar.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void initView() {
@@ -92,5 +103,6 @@ public class MainActivity extends AppCompatActivity {
         therapistCheck = findViewById(R.id.therapist_check);
         surgeonCheck = findViewById(R.id.surgeon_check);
         orthopedistCheck = findViewById(R.id.orthopedist_check);
+        toggleBtn = findViewById(R.id.toggle_btn);
     }
 }
